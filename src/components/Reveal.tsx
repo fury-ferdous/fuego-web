@@ -17,11 +17,12 @@ export function Reveal({ children, as: Tag = "div", delay = 0, variant = "rise",
   return (
     <Tag
       ref={ref}
-      data-visible={visible}
+      className={className}
       style={{ ["--reveal-delay" as string]: `${delay}ms` }}
-      className={`${variant === "mask" ? "reveal-mask" : "reveal"} ${className}`}
     >
-      {children}
+      <div data-visible={visible} className={variant === "mask" ? "reveal-mask" : "reveal"}>
+        {children}
+      </div>
     </Tag>
   );
 }
